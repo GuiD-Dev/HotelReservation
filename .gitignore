@@ -1,0 +1,48 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+hotel-reservation-frontend/dist
+hotel-reservation-frontend/tmp
+hotel-reservation-frontend/out-tsc
+hotel-reservation-frontend/bazel-out
+
+# Node
+hotel-reservation-frontend/node_modules/
+hotel-reservation-frontend/npm-debug.log
+hotel-reservation-frontend/yarn-error.log
+
+# IDEs and editors
+hotel-reservation-frontend/.idea/
+hotel-reservation-frontend/.project
+hotel-reservation-frontend/.classpath
+hotel-reservation-frontend/.c9/
+hotel-reservation-frontend/*.launch
+hotel-reservation-frontend/.settings/
+hotel-reservation-frontend/*.sublime-workspace
+
+# Visual Studio Code
+hotel-reservation-frontend/.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+hotel-reservation-frontend/.angular/cache
+hotel-reservation-frontend/.sass-cache/
+hotel-reservation-frontend/connect.lock
+hotel-reservation-frontend/coverage
+hotel-reservation-frontend/libpeerconnection.log
+hotel-reservation-frontend/testem.log
+hotel-reservation-frontend/typings
+hotel-reservation-frontend/__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db
+
+HotelReservation.WebApi/*/bin
+HotelReservation.WebApi/*/obj
+
+HotelReservation.WebApi/.vscode/

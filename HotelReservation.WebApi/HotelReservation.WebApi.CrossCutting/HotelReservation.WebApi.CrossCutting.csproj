@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../HotelReservation.WebApi.Application/HotelReservation.WebApi.Application.csproj" />
+    <ProjectReference Include="../HotelReservation.WebApi.Domain/HotelReservation.WebApi.Domain.csproj" />
+    <ProjectReference Include="../HotelReservation.WebApi.Infrastructure/HotelReservation.WebApi.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

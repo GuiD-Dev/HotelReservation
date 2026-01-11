@@ -4,4 +4,5 @@
   <Project Path="HotelReservation.WebApi.Application/HotelReservation.WebApi.Application.csproj" />
   <Project Path="HotelReservation.WebApi.Domain/HotelReservation.WebApi.Domain.csproj" />
   <Project Path="HotelReservation.WebApi.Infrastructure/HotelReservation.WebApi.Infrastructure.csproj" />
+  <Project Path="HotelReservation.WebApi.Test/HotelReservation.WebApi.Test.csproj" />
 </Solution>

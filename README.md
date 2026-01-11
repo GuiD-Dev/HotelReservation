@@ -1,59 +1,36 @@
-# HotelReservationFrontend
+# Hotel Reservation
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Adapted from: https://github.com/Pablofr10/dotnet-challenges/blob/main/Desafios/reserva-hotel.md
 
-## Development server
+## Scenario
+The owner of a group of hotels would like to have a hotel management system built for his hotels. The hotels are located in the main cities and tourist attraction areas in Brazil. Employees are hired at each hotel to perform various functions. At each hotel, guests make reservations for the rooms of their choice and are charged according to the type of room they have booked. Given the above business scenario, create an application to manage reservations.
 
-To start a local development server, run:
 
-```bash
-ng serve
-```
+## Project Stack
+- .NET 10
+- Entity Framework
+- PostgreSQL
+- xUnit
+- Angular 21
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## Functionalities
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### CRUD Hotel
+- Must contains: address
+- Not allow deactivate on update record. Create and specific endpoint to deactivate the hotel. 
+### CRUD Hotel Room
+- Must contains: number, kind, last cleaning
+- Room kinds can be: single room, double room, twin room and suite 
+### CRUD Employee
+- Must contains: name, code, document, birth day, function
+- When delete employee just fill the column deletion_date with now date and filter employees with this field null
+### CRUD Customer
+- Must contains: name, document, email, phone
+- When delete customer just fill the column deletion_date with now date and filter customer with this field null
+### CRUD Reservation
+- Must contains: number, customer that made reservation, has parking pass, checkin date, checkout date
+- The reservation cannot be deleted but change status to canceled. Verify availability before to make reservation
+### CRUD Payment
+- Must contains: value, payment methods
+- The customer can use more than one payment method

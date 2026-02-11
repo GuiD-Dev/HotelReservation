@@ -13,8 +13,9 @@ public class Reservation : BaseEntity
   public Reservation(int number, DateTime checkingDate, DateTime checkoutDate, bool hasParkingPass, Customer customer)
   {
     DomainException.ThrowsWhen(
-      (number <= 0, "Reservation number must be greater than zero."),
-      (checkingDate >= checkoutDate, "Checking date must be before checkout date.")
+      (number <= 0, "Reservation number must be greater than zero"),
+      (checkingDate >= checkoutDate, "Checkout date must be later than checking date"),
+      (customer == null, "Customer must be informed")
     );
 
     Number = number;

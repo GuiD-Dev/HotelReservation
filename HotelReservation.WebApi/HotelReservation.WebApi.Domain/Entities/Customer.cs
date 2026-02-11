@@ -13,10 +13,10 @@ public class Customer : BaseEntity
   public Customer(string name, IdentifierDocument identifierDocument, string email, string phone)
   {
     DomainException.ThrowsWhen(
-      (string.IsNullOrWhiteSpace(name), "Name cannot be empty."),
-      (identifierDocument == null, "Identifier Document cannot be empty."),
-      (string.IsNullOrWhiteSpace(email), "Email cannot be empty."),
-      (string.IsNullOrWhiteSpace(phone), "Phone cannot be empty.")
+      (string.IsNullOrWhiteSpace(name), "Name must not be empty"),
+      (identifierDocument == null, "Identifier Document must not be null"),
+      (string.IsNullOrWhiteSpace(email), "Email must not be empty"),
+      (string.IsNullOrWhiteSpace(phone), "Phone must not be empty")
     );
 
     Name = name;

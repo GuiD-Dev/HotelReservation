@@ -1,4 +1,5 @@
-﻿using HotelReservation.WebApi.Domain.Entities;
+﻿using FluentAssertions;
+using HotelReservation.WebApi.Domain.Entities;
 using HotelReservation.WebApi.Domain.Exceptions;
 using HotelReservation.WebApi.Domain.ValueObjects;
 
@@ -17,18 +18,20 @@ public class ReservationTest : IBaseTest
 
     var reservation = new Reservation(number, checkingDate, checkoutDate, hasParkingPass, customer);
 
-    Assert.Equal(reservation.Number, number);
-    Assert.Equal(reservation.HasParkingPass, hasParkingPass);
-    Assert.Equal(reservation.CheckingDate, checkingDate);
-    Assert.Equal(reservation.CheckoutDate, checkoutDate);
-    Assert.Equal(reservation.Customer, customer);
+    reservation.Number.Should().Be(number);
+    reservation.HasParkingPass.Should().Be(hasParkingPass);
+    reservation.CheckingDate.Should().Be(checkingDate);
+    reservation.CheckoutDate.Should().Be(checkoutDate);
+    reservation.Customer.Should().Be(customer);
   }
 
+  public static Customer DefaultCustomer = new Customer("John Doe", new IdentifierDocument("999.999.999-99"), "john.doe@example.com", "1234567890");
   public static IEnumerable<object[]> ReservationTestData =>
     new List<object[]>
     {
-      new object[] { 0, DateTime.Now, DateTime.Now.AddDays(1) },
-      new object[] { 1234, DateTime.Now, DateTime.Now.AddDays(-1) },
+      new object[] { 0, DateTime.Now, DateTime.Now.AddDays(1), DefaultCustomer,  "Reservation number must be greater than zero" },
+      new object[] { 1234, DateTime.Now, DateTime.Now.AddDays(-1), DefaultCustomer, "Checkout date must be later than checking date" },
+      new object[] { 1234, DateTime.Now, DateTime.Now.AddDays(1), null, "Customer must be informed" },
     };
 
   [Theory]
@@ -39,10 +42,13 @@ public class ReservationTest : IBaseTest
     var checkingDate = (DateTime)parameters[1];
     var checkoutDate = (DateTime)parameters[2];
     var hasParkingPass = true;
-    var customer = new Customer("John Doe", new IdentifierDocument("999.999.999-99"), "john.doe@example.com", "1234567890");
+    var customer = parameters[3] as Customer;
 
-    Assert.Throws<DomainException>(() =>
-        new Reservation(number, checkingDate, checkoutDate, hasParkingPass, customer)
+    var exception = Assert.Throws<DomainException>(() =>
+      new Reservation(number, checkingDate, checkoutDate, hasParkingPass, customer)
     );
+
+    var expectedMessage = (string)parameters[4];
+    exception.Message.Should().Be(expectedMessage);
   }
 }

@@ -14,10 +14,10 @@ public class Employee : BaseEntity
   public Employee(string name, IdentifierDocument identifierDocument, DateTime birthDay, int code, string sector)
   {
     DomainException.ThrowsWhen(
-      (string.IsNullOrWhiteSpace(name), "Name cannot be empty."),
-      (identifierDocument == null, "Identifier Document must be informed."),
-      (code <= 0, "Code is invalid."),
-      (string.IsNullOrWhiteSpace(sector), "Sector cannot be empty.")
+      (string.IsNullOrWhiteSpace(name), "Name must not be empty"),
+      (identifierDocument == null, "Identifier Document must not be empty"),
+      (code <= 0, "Code must be greater than zero"),
+      (string.IsNullOrWhiteSpace(sector), "Sector must not be empty")
     );
 
     Name = name;

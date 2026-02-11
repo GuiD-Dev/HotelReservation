@@ -3,7 +3,7 @@ using HotelReservation.WebApi.Domain.Exceptions;
 
 namespace HotelReservation.WebApi.Domain.ValueObjects;
 
-public class Address
+public sealed record Address
 {
 	public int Number { get; private set; }
 	public string Street { get; private set; }
@@ -14,11 +14,11 @@ public class Address
 	public Address(int number, string street, string city, string state, string zipCode)
 	{
 		DomainException.ThrowsWhen(
-			(number <= 0, "Number is invalid"),
-			(string.IsNullOrWhiteSpace(street), "Street is required"),
-			(string.IsNullOrWhiteSpace(city), "City is required"),
-			(string.IsNullOrWhiteSpace(state), "State is required"),
-			(string.IsNullOrWhiteSpace(zipCode), "ZipCode is required")
+			(number <= 0, "Number must be greater than zero"),
+			(string.IsNullOrWhiteSpace(street), "Street must not be empty"),
+			(string.IsNullOrWhiteSpace(city), "City must not be empty"),
+			(string.IsNullOrWhiteSpace(state), "State must not be empty"),
+			(string.IsNullOrWhiteSpace(zipCode), "ZipCode must not be empty")
 		);
 
 		Number = number;

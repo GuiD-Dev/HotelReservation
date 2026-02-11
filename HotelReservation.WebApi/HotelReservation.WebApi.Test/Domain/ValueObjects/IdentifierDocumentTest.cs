@@ -1,3 +1,4 @@
+using FluentAssertions;
 using HotelReservation.WebApi.Domain.Exceptions;
 using HotelReservation.WebApi.Domain.ValueObjects;
 
@@ -12,18 +13,20 @@ public class IdentifierDocumentTest : IBaseTest
 
     var identifierDocument = new IdentifierDocument(id);
 
-    Assert.Equal(id, identifierDocument.Id);
+    identifierDocument.Id.Should().Be(id);
   }
 
 
   [Theory]
-  [InlineData("")]
-  [InlineData("999.999.999")]
-  [InlineData("abc999.999.999-99")]
+  [InlineData("", "Id must not be empty | Id's format specified does not match XXX.XXX.XXX-XX")]
+  [InlineData("999.999.999", "Id's format specified does not match XXX.XXX.XXX-XX")]
+  [InlineData("abc999.999.999-99", "Id's format specified does not match XXX.XXX.XXX-XX")]
   public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var id = (string)parameters[0];
+    var exception = Assert.Throws<DomainException>(() => new IdentifierDocument(id));
 
-    Assert.Throws<DomainException>(() => new IdentifierDocument(id));
+    var expectedMessage = (string)parameters[1];
+    exception.Message.Should().Be(expectedMessage);
   }
 }

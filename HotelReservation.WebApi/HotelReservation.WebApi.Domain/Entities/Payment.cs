@@ -11,7 +11,7 @@ public class Payment : BaseEntity
   public Payment(decimal value, PaymentMethod paymentMethod)
   {
     DomainException.ThrowsWhen(
-      (value <= 0, "Value must be greater than zero.")
+      (value <= 0, "Value must be greater than zero")
     );
 
     Value = value;

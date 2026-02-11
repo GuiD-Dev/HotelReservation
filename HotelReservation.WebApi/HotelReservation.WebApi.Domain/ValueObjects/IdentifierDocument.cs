@@ -10,8 +10,8 @@ public sealed record IdentifierDocument
   public IdentifierDocument(string id)
   {
     DomainException.ThrowsWhen(
-      (string.IsNullOrWhiteSpace(id), "Document id must be informed."),
-      (Regex.IsMatch(id, @"^\d{3}\.\d{3}\.\d{3}-\d{2}$") is false, "Document id format is invalid.")
+      (string.IsNullOrWhiteSpace(id), "Id must not be empty"),
+      (Regex.IsMatch(id, @"^\d{3}\.\d{3}\.\d{3}-\d{2}$") is false, "Id's format specified does not match XXX.XXX.XXX-XX")
     );
 
     Id = id;

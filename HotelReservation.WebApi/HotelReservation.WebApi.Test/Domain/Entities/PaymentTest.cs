@@ -1,4 +1,5 @@
-﻿using HotelReservation.WebApi.Domain.Entities;
+﻿using FluentAssertions;
+using HotelReservation.WebApi.Domain.Entities;
 using HotelReservation.WebApi.Domain.Enums;
 using HotelReservation.WebApi.Domain.Exceptions;
 
@@ -14,16 +15,20 @@ public class PaymentTest : IBaseTest
 
     var payment = new Payment(value, method);
 
-    Assert.Equal(payment.Value, value);
-    Assert.Equal(payment.PaymentMethod, method);
+    payment.Value.Should().Be(value);
+    payment.PaymentMethod.Should().Be(method);
   }
 
   [Theory]
-  [InlineData(0.00)]
-  [InlineData(-1.00)]
+  [InlineData(0.00, "Value must be greater than zero")]
+  [InlineData(-1.00, "Value must be greater than zero")]
   public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var value = (decimal)parameters[0];
-    Assert.Throws<DomainException>(() => new Payment(value, PaymentMethod.CreditCard));
+
+    var exception = Assert.Throws<DomainException>(() => new Payment(value, PaymentMethod.CreditCard));
+
+    var expectedMessage = (string)parameters[1];
+    exception.Message.Should().Be(expectedMessage);
   }
 }

@@ -12,7 +12,7 @@ public class HotelRoom : BaseEntity
 
   public HotelRoom(int number, HotelRoomKind kind, DateTime lastCleaning)
   {
-    DomainException.ThrowsWhen((number <= 0, "Room number must be greater than zero."));
+    DomainException.ThrowsWhen((number <= 0, "Room number must be greater than zero"));
 
     Number = number;
     Kind = kind;

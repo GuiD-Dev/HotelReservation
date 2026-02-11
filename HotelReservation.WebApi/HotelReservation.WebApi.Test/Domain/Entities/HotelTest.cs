@@ -1,4 +1,5 @@
-﻿using HotelReservation.WebApi.Domain.Entities;
+﻿using FluentAssertions;
+using HotelReservation.WebApi.Domain.Entities;
 using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Test.Domain.Entities;
@@ -12,7 +13,7 @@ public class HotelTest : IBaseTest
 
     var hotel = new Hotel(address);
 
-    Assert.Equal(address, hotel.Address);
+    hotel.Address.Should().Be(address);
   }
 
   public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)

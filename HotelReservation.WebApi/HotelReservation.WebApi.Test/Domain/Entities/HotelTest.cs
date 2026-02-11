@@ -3,10 +3,10 @@ using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Test.Domain.Entities;
 
-public class HotelTest : BaseTest
+public class HotelTest : IBaseTest
 {
   [Fact]
-  public override void Should_Create_Entity()
+  public void Should_Create_Entity()
   {
     var address = new Address(123, "Main St", "Springfield", "IL", "62701");
 
@@ -15,7 +15,7 @@ public class HotelTest : BaseTest
     Assert.Equal(address, hotel.Address);
   }
 
-  public override void Should_Throws_Exception_When_Invalid_Parameters(params dynamic[] parameters)
+  public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     throw new NotImplementedException();
   }

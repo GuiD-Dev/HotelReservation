@@ -4,10 +4,10 @@ using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Test.Domain.Entities;
 
-public class ReservationTest : BaseTest
+public class ReservationTest : IBaseTest
 {
   [Fact]
-  public override void Should_Create_Entity()
+  public void Should_Create_Entity()
   {
     var number = 1234;
     var checkingDate = DateTime.UtcNow;
@@ -33,7 +33,7 @@ public class ReservationTest : BaseTest
 
   [Theory]
   [MemberData(nameof(ReservationTestData))]
-  public override void Should_Throws_Exception_When_Invalid_Parameters(params dynamic[] parameters)
+  public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var number = (int)parameters[0];
     var checkingDate = (DateTime)parameters[1];

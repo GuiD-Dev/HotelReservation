@@ -3,10 +3,10 @@ using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Test.Domain.ValueObjects;
 
-public class IdentifierDocumentTest : BaseTest
+public class IdentifierDocumentTest : IBaseTest
 {
   [Fact]
-  public override void Should_Create_Entity()
+  public void Should_Create_Entity()
   {
     var id = "999.999.999-99";
 
@@ -20,7 +20,7 @@ public class IdentifierDocumentTest : BaseTest
   [InlineData("")]
   [InlineData("999.999.999")]
   [InlineData("abc999.999.999-99")]
-  public override void Should_Throws_Exception_When_Invalid_Parameters(params dynamic[] parameters)
+  public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var id = (string)parameters[0];
 

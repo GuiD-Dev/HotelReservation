@@ -4,10 +4,10 @@ using HotelReservation.WebApi.Domain.Exceptions;
 
 namespace HotelReservation.WebApi.Test.Domain.Entities;
 
-public class HotelRoomTest : BaseTest
+public class HotelRoomTest : IBaseTest
 {
   [Fact]
-  public override void Should_Create_Entity()
+  public void Should_Create_Entity()
   {
     var number = 101;
     var kind = HotelRoomKind.Standart;
@@ -23,7 +23,7 @@ public class HotelRoomTest : BaseTest
   [Theory]
   [InlineData(0)]
   [InlineData(-1)]
-  public override void Should_Throws_Exception_When_Invalid_Parameters(params dynamic[] parameters)
+  public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var number = (int)parameters[0];
     var kind = HotelRoomKind.Standart;

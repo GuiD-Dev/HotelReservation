@@ -4,10 +4,10 @@ using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Test.Domain.Entities;
 
-public class EmployeeTest : BaseTest
+public class EmployeeTest : IBaseTest
 {
   [Fact]
-  public override void Should_Create_Entity()
+  public void Should_Create_Entity()
   {
     var name = "John Doe";
     var identifierDocument = new IdentifierDocument("999.999.999-99");
@@ -29,7 +29,7 @@ public class EmployeeTest : BaseTest
   [InlineData("John Doe", "", 12345, "Front Desk")]
   [InlineData("John Doe", "999.999.999-99", 0, "Front Desk")]
   [InlineData("John Doe", "999.999.999-99", 12345, "")]
-  public override void Should_Throws_Exception_When_Invalid_Parameters(params dynamic[] parameters)
+  public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var name = (string)parameters[0];
     var identifierDocument = (string)parameters[1];

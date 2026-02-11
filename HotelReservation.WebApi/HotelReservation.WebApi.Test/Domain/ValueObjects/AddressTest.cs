@@ -3,10 +3,10 @@ using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Test.Domain.ValueObjects;
 
-public class AddressTest : BaseTest
+public class AddressTest : IBaseTest
 {
   [Fact]
-  public override void Should_Create_Entity()
+  public void Should_Create_Entity()
   {
     var validNumber = 123;
     var validStreet = "Main St";
@@ -29,7 +29,7 @@ public class AddressTest : BaseTest
   [InlineData(123, "Main St", "", "IL", "62701")]
   [InlineData(123, "Main St", "Springfield", "", "62701")]
   [InlineData(123, "Main St", "Springfield", "IL", "")]
-  public override void Should_Throws_Exception_When_Invalid_Parameters(params dynamic[] parameters)
+  public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var number = (int)parameters[0];
     var street = (string)parameters[1];

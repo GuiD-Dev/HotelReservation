@@ -4,10 +4,10 @@ using HotelReservation.WebApi.Domain.Exceptions;
 
 namespace HotelReservation.WebApi.Test.Domain.Entities;
 
-public class PaymentTest : BaseTest
+public class PaymentTest : IBaseTest
 {
   [Fact]
-  public override void Should_Create_Entity()
+  public void Should_Create_Entity()
   {
     var value = 400.00m;
     var method = PaymentMethod.CreditCard;
@@ -21,7 +21,7 @@ public class PaymentTest : BaseTest
   [Theory]
   [InlineData(0.00)]
   [InlineData(-1.00)]
-  public override void Should_Throws_Exception_When_Invalid_Parameters(params dynamic[] parameters)
+  public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var value = (decimal)parameters[0];
     Assert.Throws<DomainException>(() => new Payment(value, PaymentMethod.CreditCard));

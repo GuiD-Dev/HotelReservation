@@ -5,7 +5,7 @@ using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Test.Domain.Entities;
 
-public class EmployeeTest : IBaseTest
+public class EmployeeTests : IBaseTests
 {
   [Fact]
   public void Should_Create_Entity()

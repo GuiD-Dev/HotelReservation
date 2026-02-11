@@ -5,7 +5,7 @@ using HotelReservation.WebApi.Domain.Exceptions;
 
 namespace HotelReservation.WebApi.Test.Domain.Entities;
 
-public class PaymentTest : IBaseTest
+public class PaymentTests : IBaseTests
 {
   [Fact]
   public void Should_Create_Entity()

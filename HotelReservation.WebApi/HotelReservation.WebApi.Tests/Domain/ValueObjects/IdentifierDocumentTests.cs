@@ -4,7 +4,7 @@ using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Test.Domain.ValueObjects;
 
-public class IdentifierDocumentTest : IBaseTest
+public class IdentifierDocumentTests : IBaseTests
 {
   [Fact]
   public void Should_Create_Entity()

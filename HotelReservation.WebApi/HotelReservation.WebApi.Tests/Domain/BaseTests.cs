@@ -1,4 +1,4 @@
-namespace HotelReservation.WebApi.Test.Domain;
+namespace HotelReservation.WebApi.Tests.Domain;
 
 public interface IBaseTests
 {

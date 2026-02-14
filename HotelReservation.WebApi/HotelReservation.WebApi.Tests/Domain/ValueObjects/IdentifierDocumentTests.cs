@@ -2,7 +2,7 @@ using FluentAssertions;
 using HotelReservation.WebApi.Domain.Exceptions;
 using HotelReservation.WebApi.Domain.ValueObjects;
 
-namespace HotelReservation.WebApi.Test.Domain.ValueObjects;
+namespace HotelReservation.WebApi.Tests.Domain.ValueObjects;
 
 public class IdentifierDocumentTests : IBaseTests
 {

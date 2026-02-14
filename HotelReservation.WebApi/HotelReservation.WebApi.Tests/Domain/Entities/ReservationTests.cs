@@ -3,7 +3,7 @@ using HotelReservation.WebApi.Domain.Entities;
 using HotelReservation.WebApi.Domain.Exceptions;
 using HotelReservation.WebApi.Domain.ValueObjects;
 
-namespace HotelReservation.WebApi.Test.Domain.Entities;
+namespace HotelReservation.WebApi.Tests.Domain.Entities;
 
 public class ReservationTests : IBaseTests
 {

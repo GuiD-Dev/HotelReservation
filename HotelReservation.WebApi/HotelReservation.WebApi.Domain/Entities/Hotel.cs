@@ -11,7 +11,7 @@ public class Hotel : BaseEntity
 
   public Hotel(Address address)
   {
-    DomainException.ThrowsWhen((address == null, "Address cannot be empty."));
+    DomainException.ThrowsWhen((address == null, "Address must be provided"));
 
     Address = address!;
   }

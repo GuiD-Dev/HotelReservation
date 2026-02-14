@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using HotelReservation.WebApi.Domain.Entities;
+using HotelReservation.WebApi.Domain.Exceptions;
 using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Tests.Domain.Entities;
@@ -16,8 +17,15 @@ public class HotelTests : IBaseTests
     hotel.Address.Should().Be(address);
   }
 
-  public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
+  [Theory]
+  [InlineData(null, "Address must be provided")]
+  public void Should_Throw_Exception_When_Invalid_Parameters(params object[] parameters)
   {
-    throw new NotImplementedException();
+    var address = (object?)parameters[0];
+
+    var exception = Assert.Throws<DomainException>(() => new Hotel(address as Address));
+
+    var expectedMessage = (string)parameters[1];
+    exception.Message.Should().Be(expectedMessage);
   }
 }

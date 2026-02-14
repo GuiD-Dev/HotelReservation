@@ -3,7 +3,7 @@ using HotelReservation.WebApi.Domain.Exceptions;
 
 namespace HotelReservation.WebApi.Domain.Entities;
 
-public class HotelRoom : BaseEntity
+public sealed class HotelRoom : BaseEntity
 {
   public int Number { get; private set; }
   public HotelRoomKind Kind { get; private set; }

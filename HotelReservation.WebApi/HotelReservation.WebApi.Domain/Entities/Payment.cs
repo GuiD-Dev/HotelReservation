@@ -3,7 +3,7 @@ using HotelReservation.WebApi.Domain.Exceptions;
 
 namespace HotelReservation.WebApi.Domain.Entities;
 
-public class Payment : BaseEntity
+public sealed class Payment : BaseEntity
 {
   public decimal Value { get; private set; }
   public PaymentMethod PaymentMethod { get; private set; }

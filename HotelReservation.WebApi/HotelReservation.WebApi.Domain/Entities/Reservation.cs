@@ -2,7 +2,7 @@ using HotelReservation.WebApi.Domain.Exceptions;
 
 namespace HotelReservation.WebApi.Domain.Entities;
 
-public class Reservation : BaseEntity
+public sealed class Reservation : BaseEntity
 {
   public int Number { get; private set; }
   public DateTime CheckingDate { get; private set; }

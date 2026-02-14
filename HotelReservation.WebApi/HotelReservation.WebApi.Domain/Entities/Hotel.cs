@@ -3,7 +3,7 @@ using HotelReservation.WebApi.Domain.ValueObjects;
 
 namespace HotelReservation.WebApi.Domain.Entities;
 
-public class Hotel : BaseEntity
+public sealed class Hotel : BaseEntity
 {
   public Address Address { get; private set; }
 

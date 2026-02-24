@@ -46,3 +46,6 @@ HotelReservation.WebApi/*/bin
 HotelReservation.WebApi/*/obj
 
 HotelReservation.WebApi/.vscode/
+
+*.http
+.env

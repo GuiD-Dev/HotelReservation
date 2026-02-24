@@ -11,7 +11,7 @@ public class HotelRoomTests : IBaseTests
   public void Should_Create_Entity()
   {
     var number = 101;
-    var kind = HotelRoomKind.Standart;
+    var kind = HotelRoomKind.Single;
     var lastCleaning = DateTime.UtcNow;
 
     var room = new HotelRoom(number, kind, lastCleaning);
@@ -27,7 +27,7 @@ public class HotelRoomTests : IBaseTests
   public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var number = (int)parameters[0];
-    var kind = HotelRoomKind.Standart;
+    var kind = HotelRoomKind.Single;
     var lastCleaning = DateTime.UtcNow;
 
     var exception = Assert.Throws<DomainException>(() => new HotelRoom(number, kind, lastCleaning));

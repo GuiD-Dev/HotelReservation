@@ -2,7 +2,8 @@ namespace HotelReservation.WebApi.Domain.Enums;
 
 public enum HotelRoomKind
 {
-  Standart = 1,
-  Deluxe = 2,
-  Executive_Suite = 3,
+  Single = 1,
+  Double = 2,
+  Twin = 3,
+  Suite = 4,
 }

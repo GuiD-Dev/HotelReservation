@@ -10,7 +10,7 @@ public class HotelTests : IBaseTests
   [Fact]
   public void Should_Create_Entity()
   {
-    var address = new Address(123, "Main St", "Springfield", "IL", "62701");
+    var address = new Address(123, "Main St", "Springfield", "IL", "USA", "62701");
 
     var hotel = new Hotel(address);
 

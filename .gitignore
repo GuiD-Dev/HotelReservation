@@ -49,3 +49,4 @@ HotelReservation.WebApi/.vscode/
 
 *.http
 .env
+*.sql

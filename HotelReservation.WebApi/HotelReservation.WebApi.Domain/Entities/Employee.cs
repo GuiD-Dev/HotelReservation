@@ -11,6 +11,8 @@ public sealed class Employee : BaseEntity
   public DateTime BirthDay { get; private set; }
   public string Sector { get; private set; }
 
+  private Employee() { }
+
   public Employee(string name, IdentifierDocument identifierDocument, DateTime birthDay, int code, string sector)
   {
     DomainException.ThrowsWhen(

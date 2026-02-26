@@ -10,6 +10,8 @@ public sealed class Customer : BaseEntity
   public string Email { get; private set; }
   public string Phone { get; private set; }
 
+  private Customer() { }
+
   public Customer(string name, IdentifierDocument identifierDocument, string email, string phone)
   {
     DomainException.ThrowsWhen(

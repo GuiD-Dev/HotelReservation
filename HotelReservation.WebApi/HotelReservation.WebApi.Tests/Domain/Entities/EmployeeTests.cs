@@ -11,7 +11,7 @@ public class EmployeeTests : IBaseTests
   public void Should_Create_Entity()
   {
     var name = "John Doe";
-    var identifierDocument = new IdentifierDocument("999.999.999-99");
+    var identifierDocument = new IdentifierDocument("999.999.999-99", DateTime.UtcNow.AddDays(-1));
     var code = 12345;
     var birthDay = new DateTime(1990, 1, 1);
     var sector = "Front Desk";
@@ -25,16 +25,20 @@ public class EmployeeTests : IBaseTests
     employee.Sector.Should().Be(sector);
   }
 
+  public static IEnumerable<object[]> TestData => new List<object[]>
+  {
+    new object[] { "", new IdentifierDocument("999.999.999-99", DateTime.UtcNow.AddDays(-1)), 12345, "Front Desk", "Name must not be empty" },
+    new object[] { "John Doe", null, 12345, "Front Desk", "Identifier Document must not be empty" },
+    new object[] { "John Doe", new IdentifierDocument("999.999.999-99", DateTime.UtcNow.AddDays(-1)), 0, "Front Desk", "Code must be greater than zero" },
+    new object[] { "John Doe", new IdentifierDocument("999.999.999-99", DateTime.UtcNow.AddDays(-1)), 12345, "", "Sector must not be empty" }
+  };
+  
   [Theory]
-  [InlineData("", "999.999.999-99", 12345, "Front Desk", "Name must not be empty")]
-  [InlineData("John Doe", null, 12345, "Front Desk", "Identifier Document must not be empty")]
-  [InlineData("John Doe", "999.999.999-99", 0, "Front Desk", "Code must be greater than zero")]
-  [InlineData("John Doe", "999.999.999-99", 12345, "", "Sector must not be empty")]
+  [MemberData(nameof(TestData))]
   public void Should_Throw_Exception_When_Invalid_Parameters(params dynamic[] parameters)
   {
     var name = (string)parameters[0];
-    var id = (string?)parameters[1];
-    var identifierDocument = id != null ? new IdentifierDocument(id) : null;
+    var identifierDocument = (IdentifierDocument)parameters[1];
     var code = (int)parameters[2];
     var sector = (string)parameters[3];
 

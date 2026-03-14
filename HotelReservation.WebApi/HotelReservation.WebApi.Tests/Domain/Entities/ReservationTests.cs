@@ -14,7 +14,7 @@ public class ReservationTests : IBaseTests
     var checkingDate = DateTime.UtcNow;
     var checkoutDate = DateTime.UtcNow.AddDays(5);
     var hasParkingPass = true;
-    var customer = new Customer("John Doe", new IdentifierDocument("999.999.999-99"), "john.doe@example.com", "1234567890");
+    var customer = new Customer("John Doe", new IdentifierDocument("999.999.999-99", DateTime.UtcNow.AddDays(-1)), "john.doe@example.com", "1234567890");
 
     var reservation = new Reservation(number, checkingDate, checkoutDate, hasParkingPass, customer);
 
@@ -25,13 +25,13 @@ public class ReservationTests : IBaseTests
     reservation.Customer.Should().Be(customer);
   }
 
-  public static Customer DefaultCustomer = new Customer("John Doe", new IdentifierDocument("999.999.999-99"), "john.doe@example.com", "1234567890");
+  public static Customer DefaultCustomer = new Customer("John Doe", new IdentifierDocument("999.999.999-99", DateTime.UtcNow.AddDays(-1)), "john.doe@example.com", "1234567890");
   public static IEnumerable<object[]> ReservationTestData =>
     new List<object[]>
     {
-      new object[] { 0, DateTime.Now, DateTime.Now.AddDays(1), DefaultCustomer,  "Reservation number must be greater than zero" },
-      new object[] { 1234, DateTime.Now, DateTime.Now.AddDays(-1), DefaultCustomer, "Checkout date must be later than checking date" },
-      new object[] { 1234, DateTime.Now, DateTime.Now.AddDays(1), null, "Customer must be informed" },
+      new object[] { 0, DateTime.UtcNow, DateTime.UtcNow.AddDays(1), DefaultCustomer,  "Reservation number must be greater than zero" },
+      new object[] { 1234, DateTime.UtcNow, DateTime.UtcNow.AddDays(-1), DefaultCustomer, "Checkout date must be later than checking date" },
+      new object[] { 1234, DateTime.UtcNow, DateTime.UtcNow.AddDays(1), null, "Customer must be informed" },
     };
 
   [Theory]

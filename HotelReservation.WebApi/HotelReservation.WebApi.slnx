@@ -1,8 +1,0 @@
-<Solution>
-  <Project Path="HotelReservation.WebApi.CrossCutting/HotelReservation.WebApi.CrossCutting.csproj" />
-  <Project Path="HotelReservation.WebApi.API/HotelReservation.WebApi.API.csproj" />
-  <Project Path="HotelReservation.WebApi.Application/HotelReservation.WebApi.Application.csproj" />
-  <Project Path="HotelReservation.WebApi.Domain/HotelReservation.WebApi.Domain.csproj" />
-  <Project Path="HotelReservation.WebApi.Infrastructure/HotelReservation.WebApi.Infrastructure.csproj" />
-  <Project Path="HotelReservation.WebApi.Tests/HotelReservation.WebApi.Tests.csproj" />
-</Solution>

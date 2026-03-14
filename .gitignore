@@ -42,10 +42,10 @@ hotel-reservation-frontend/__screenshots__/
 .DS_Store
 Thumbs.db
 
-HotelReservation.WebApi/*/bin
-HotelReservation.WebApi/*/obj
+*/bin
+*/obj
 
-HotelReservation.WebApi/.vscode/
+.vscode/
 
 *.http
 .env

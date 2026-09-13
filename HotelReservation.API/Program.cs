@@ -10,10 +10,13 @@ builder.Services.AddDependencies(builder.Configuration);
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+if (app.Environment.IsDevelopment())
 {
-  var dbcontext = scope.ServiceProvider.GetRequiredService<PgSQLContext>();
-  dbcontext.Database.Migrate();
+  using (var scope = app.Services.CreateScope())
+  {
+    var dbcontext = scope.ServiceProvider.GetRequiredService<PgSQLContext>();
+    dbcontext.Database.Migrate();
+  }
 }
 
 app.MapControllers();

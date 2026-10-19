@@ -7,14 +7,16 @@ The owner of a group of hotels would like to have a hotel management system buil
 
 
 ## Project Stack
-- .NET 10
-- Entity Framework
-- PostgreSQL
-- xUnit
-- Angular 21
+- [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
+- [Entity Framework](https://learn.microsoft.com/en-us/ef/)
+- [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+- [xUnit](https://xunit.net/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://docs.docker.com/)
+- [Angular 21](https://angular.dev/)
 
 
-## Functionalities
+## Requirements
 
 ### CRUD Hotel
 - Must contains: address
@@ -23,7 +25,7 @@ The owner of a group of hotels would like to have a hotel management system buil
 - Must contains: number, kind, last cleaning
 - Room kinds can be: single room, double room, twin room and suite 
 ### CRUD Employee
-- Must contains: name, code, document, birth day, function
+- Must contains: name, code, document, birth day, position, salary
 - When delete employee just fill the column deletion_date with now date and filter employees with this field null
 ### CRUD Customer
 - Must contains: name, document, email, phone
@@ -32,5 +34,7 @@ The owner of a group of hotels would like to have a hotel management system buil
 - Must contains: number, customer that made reservation, has parking pass, checkin date, checkout date
 - The reservation cannot be deleted but change status to canceled. Verify availability before to make reservation
 ### CRUD Payment
-- Must contains: value, payment methods
+- Must contains: amount, status
 - The customer can use more than one payment method
+### CRUD Payment Method
+- Must contains: description

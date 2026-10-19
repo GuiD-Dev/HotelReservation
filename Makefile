@@ -8,11 +8,16 @@ init-db:
 
 add-migration:
 	dotnet ef migrations add $(NAME) \
-		--project HotelReservation.WebApi/HotelReservation.Infrastructure \
-		--startup-project HotelReservation.WebApi/HotelReservation.API
+		--project WebApi.Infrastructure \
+		--startup-project HotelReservation.API
+
+apply-migrations:
+	dotnet ef database update \
+		--project WebApi.Infrastructure \
+		--startup-project HotelReservation.API
 
 watch-webapi:
-	dotnet watch --project HotelReservation.WebApi/HotelReservation.API
+	dotnet watch --project HotelReservation.API
 
 build-webapi:
 	docker build -f docker/webapi.dockerfile -t hotel-reservation-webapi .

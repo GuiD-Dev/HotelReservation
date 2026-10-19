@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="WebApi.CrossCutting/WebApi.CrossCutting.csproj" />
+  <Project Path="WebApi.API/WebApi.API.csproj" />
+  <Project Path="WebApi.Application/WebApi.Application.csproj" />
+  <Project Path="WebApi.Domain/WebApi.Domain.csproj" />
+  <Project Path="WebApi.Infrastructure/WebApi.Infrastructure.csproj" />
+</Solution>
